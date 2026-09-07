@@ -308,4 +308,899 @@ footer{background:var(--green-deep);color:var(--paper)}
 .foot-main .fine{margin-top:16px;font-size:.9rem;opacity:.75;max-width:38ch}
 .foot-col b{display:block;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:14px}
 .foot-col a,.foot-col button{display:block;background:none;border:none;color:var(--paper);font:500 .92rem var(--body);padding:4px 0;opacity:.85;transition:all .15s;text-align:left}
-.foot-col a:hover,.foot-col button:hover{opacity:1;colo
+.foot-col a:hover,.foot-col button:hover{opacity:1;color:var(--yellow);transform:translateX(5px)}
+.foot-bar{border-top:2px solid rgba(242,236,219,.2);padding:16px 0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.8rem;opacity:.8}
+
+/* ============ MODALS ============ */
+.modal{position:fixed;inset:0;z-index:90;display:none;place-items:center;padding:20px}
+.modal.open{display:grid}
+.backdrop{position:absolute;inset:0;background:rgba(20,24,18,.6)}
+.sheet{
+  position:relative;background:var(--paper);border:3px solid var(--ink);border-radius:14px;
+  box-shadow:12px 14px 0 rgba(20,24,18,.85);width:100%;max-height:90vh;overflow:auto;
+  animation:popIn .3s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes popIn{from{opacity:0;transform:translateY(16px) scale(.95)}}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--paper);z-index:2}
+.sheet-head h3{font-family:var(--disp);font-size:1.15rem;text-transform:uppercase}
+.x{border:2px solid var(--ink);background:var(--card);border-radius:8px;width:36px;height:36px;font-size:1.1rem;font-weight:700;box-shadow:3px 3px 0 var(--ink);transition:all .15s}
+.x:hover{background:var(--orange);color:var(--paper);transform:rotate(90deg)}
+/* post form */
+#postSheet{max-width:620px}
+.form-grid{padding:22px;display:grid;gap:16px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field label{display:block;font-size:.72rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:6px}
+.field input[type=text],.field input[type=number],.field select,.field textarea{
+  width:100%;font:500 .95rem var(--body);border:2px solid var(--ink);border-radius:9px;
+  background:var(--card);padding:11px 13px;
+}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;box-shadow:3px 3px 0 var(--yellow)}
+.field textarea{resize:vertical;min-height:84px}
+#warrHint{display:block;font-size:.74rem;color:var(--green);font-weight:700;margin-top:7px}
+.emoji-row{display:flex;gap:8px;flex-wrap:wrap}
+.emoji-btn{font-size:1.4rem;width:46px;height:46px;border:2px solid var(--ink);border-radius:9px;background:var(--card);transition:all .15s}
+.emoji-btn:hover{transform:translateY(-3px)}
+.emoji-btn.sel{background:var(--yellow);box-shadow:3px 3px 0 var(--ink);transform:translateY(-3px)}
+.check{display:flex;align-items:center;gap:9px;font-weight:700;font-size:.9rem;cursor:pointer}
+.check input{width:19px;height:19px;accent-color:var(--green)}
+.form-foot{padding:0 22px 24px;display:flex;gap:12px;justify-content:flex-end}
+/* item detail */
+#itemSheet{max-width:800px}
+.item-wrap{display:grid;grid-template-columns:300px 1fr;gap:0}
+.item-art{border-right:2px solid var(--ink);display:grid;place-items:center;min-height:320px;font-size:104px}
+.item-art span{filter:drop-shadow(5px 6px 0 rgba(34,39,31,.28));animation:float 3.4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px) rotate(3deg)}}
+.item-info{padding:26px 26px 28px}
+.item-info h2{font-family:var(--disp);font-size:1.5rem;line-height:1.2;margin:12px 0 10px}
+.item-price-row{display:flex;align-items:center;gap:14px;margin:6px 0 16px}
+.item-price-row .price{font-size:2.1rem}
+.item-info .desc{font-size:.98rem;line-height:1.6;margin-bottom:18px}
+.warr-box{
+  border:2px solid var(--green);background:#e9f4ec;border-radius:9px;padding:11px 14px;
+  font-size:.85rem;font-weight:700;line-height:1.5;margin-bottom:18px;
+}
+.seller-card{display:flex;align-items:center;gap:12px;background:var(--card);border:2px solid var(--ink);border-radius:10px;padding:12px 14px;margin-bottom:20px;box-shadow:3px 3px 0 var(--ink)}
+.avatar{width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--disp);font-size:.95rem;color:var(--paper);flex-shrink:0}
+.seller-card b{display:block;font-size:.95rem}
+.seller-card small{font-size:.78rem;opacity:.75}
+.item-actions{display:flex;gap:12px;flex-wrap:wrap}
+.safety{margin-top:18px;font-size:.78rem;font-weight:700;opacity:.65}
+/* report */
+#reportSheet{max-width:520px}
+.report-body{padding:22px}
+.report-item{font-family:var(--disp);font-size:.95rem;margin-bottom:8px;line-height:1.4}
+.report-note{font-size:.85rem;opacity:.8;margin-bottom:16px}
+.reasons{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.reason{
+  font:700 .84rem var(--body);border:2px solid var(--ink);background:var(--card);
+  border-radius:9px;padding:11px 12px;text-align:left;transition:all .15s;
+}
+.reason:hover{transform:translateY(-2px);box-shadow:3px 3px 0 var(--ink)}
+.reason.sel{background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--orange)}
+#repDesc{
+  width:100%;font:500 .92rem var(--body);border:2px solid var(--ink);border-radius:9px;
+  background:var(--card);padding:11px 13px;min-height:70px;resize:vertical;margin-bottom:18px;
+}
+#repDesc:focus{outline:none;box-shadow:3px 3px 0 var(--yellow)}
+.report-foot{display:flex;gap:12px;justify-content:flex-end}
+/* chat */
+#chatModal{z-index:95}
+#chatSheet{max-width:440px;display:flex;flex-direction:column}
+.chat-head{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:2px solid var(--ink)}
+.chat-head .avatar{width:40px;height:40px}
+.chat-head b{display:block;font-size:.95rem}
+.chat-head small{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--green);font-weight:700}
+.chat-head small i{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.6s ease infinite}
+.chat-body{height:310px;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:10px;background:rgba(255,253,244,.6)}
+.bub{max-width:82%;border:2px solid var(--ink);border-radius:12px;padding:9px 13px;font-size:.92rem;line-height:1.45;animation:bubIn .3s ease}
+@keyframes bubIn{from{opacity:0;transform:translateY(8px)}}
+.bub.them{background:var(--card);align-self:flex-start;border-bottom-left-radius:3px}
+.bub.me{background:var(--yellow);align-self:flex-end;border-bottom-right-radius:3px}
+.bub.sys{align-self:center;font-size:.75rem;font-weight:700;letter-spacing:.6px;background:var(--ink);color:var(--paper);border-radius:999px;padding:5px 14px}
+.typing{display:flex;gap:5px;padding:13px 15px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--ink);animation:bl 1s ease infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{40%{transform:translateY(-6px);opacity:.5}}
+.chat-input{display:flex;gap:10px;padding:14px;border-top:2px solid var(--ink)}
+.chat-input input{flex:1;font:500 .95rem var(--body);border:2px solid var(--ink);border-radius:9px;padding:10px 13px;background:var(--card)}
+.chat-input input:focus{outline:none;box-shadow:3px 3px 0 var(--yellow)}
+
+/* ============ TOASTS & FAB ============ */
+#toasts{position:fixed;bottom:22px;left:22px;z-index:120;display:flex;flex-direction:column;gap:10px}
+.toast{
+  background:var(--card);border:2px solid var(--ink);border-left:8px solid var(--orange);
+  border-radius:9px;box-shadow:5px 6px 0 rgba(34,39,31,.85);padding:12px 18px;font-weight:700;font-size:.9rem;
+  animation:toastIn .35s cubic-bezier(.34,1.56,.64,1);max-width:360px;
+  display:flex;align-items:center;gap:12px;
+}
+.toast .undo{border:none;background:none;font:700 .85rem var(--body);color:var(--blue);text-decoration:underline;white-space:nowrap;padding:0}
+@keyframes toastIn{from{opacity:0;transform:translateX(-24px)}}
+.toast.out{opacity:0;transform:translateX(-24px);transition:all .3s}
+.fab{
+  position:fixed;bottom:22px;right:22px;z-index:70;width:66px;height:66px;border-radius:50%;
+  background:var(--yellow);border:2px solid var(--ink);box-shadow:5px 6px 0 var(--ink);
+  font-family:var(--disp);font-size:1.7rem;display:none;place-items:center;transition:transform .2s;
+}
+.fab:hover{transform:rotate(12deg) scale(1.08)}
+
+/* ============ REVEALS & MOTION PREFS ============ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr}
+  .collage{min-height:340px;margin-top:10px}
+  .steps{grid-template-columns:1fr;gap:26px}
+  .squig{transform:rotate(90deg);margin:0 auto}
+  .item-wrap{grid-template-columns:1fr}
+  .item-art{border-right:none;border-bottom:2px solid var(--ink);min-height:220px}
+  .foot-main{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .site-head nav,.live{display:none}
+  .toolbar{position:static}
+  .fab{display:grid}
+  .f-row{grid-template-columns:1fr}
+  .foot-main{grid-template-columns:1fr}
+  .hero{padding-top:36px}
+}
+@media (max-width:520px){
+  .reasons{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ACTIVITY TICKER -->
+<div class="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack"></div></div>
+
+<!-- HEADER -->
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <span class="logo-badge">C</span>
+      <span class="logo-text">CAMPUSKART<small>CAMPUS MARKETPLACE</small></span>
+    </a>
+    <nav>
+      <a href="#board">Browse</a>
+      <a href="#how">How it works</a>
+      <a href="#rules">House rules</a>
+    </nav>
+    <div class="head-actions">
+      <span class="live"><i></i>214 online</span>
+      <button class="btn btn-paper" id="savedBtn" title="Show saved items">♥ Saved <b id="savedCount">0</b></button>
+      <button class="btn btn-orange" data-open-post>+ Post item</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============ OPENING BOARD ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="kicker">📌 STUDENT-RUN · ZERO FEES · 🛡 1-MONTH WARRANTY ON ELECTRONICS</span>
+      <h1>Buy it.<br>Sell it. <span class="hl">Swap it.</span></h1>
+      <p class="sub">The campus bulletin board, upgraded. Grab a textbook before your 9am lecture, offload your mini fridge by noon — all without leaving campus.</p>
+      <form class="search-big" id="heroSearch">
+        <input id="q1" type="search" placeholder="Search 20+ listings… try “laptop”" aria-label="Search listings">
+        <button class="btn btn-orange" type="submit">SEARCH →</button>
+      </form>
+      <div class="try">Trending:
+        <button data-q="textbook">textbooks</button>
+        <button data-q="laptop">laptops</button>
+        <button data-q="redmi">phones</button>
+        <button data-q="tickets">tickets</button>
+      </div>
+      <div class="stats">
+        <div class="stat"><b data-count id="statListings">0</b><span>live listings</span></div>
+        <div class="stat"><b data-count="1208">0</b><span>students trading</span></div>
+        <div class="stat"><b data-count="3415">0</b><span>swaps made</span></div>
+      </div>
+    </div>
+
+    <div class="collage" aria-hidden="true">
+      <svg class="spin-badge" viewBox="0 0 140 140">
+        <defs><path id="circ" d="M70,70 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/></defs>
+        <text><textPath href="#circ">BUY IT • SELL IT • SWAP IT • REPEAT • BUY IT • SELL IT •</textPath></text>
+        <text x="70" y="82" text-anchor="middle" style="font-size:34px">📌</text>
+      </svg>
+      <article class="mini-card">
+        <div class="mini-art" style="--p1:#d8ece0;--p2:#a8d8bf">💻</div>
+        <h4>HP Pavilion 15 — i5 / 8GB</h4>
+        <div class="mini-row"><span class="price">₹190</span><span class="tag-mini gr">🛡 1-mo warranty</span></div>
+        <span class="sticker">🔥 HOT</span>
+      </article>
+      <div class="swap-badge">SWAPS<br>WELCOME<br>⇄</div>
+      <div class="hero-note"><span class="tape"></span>No fees. No shipping. Just CampusKart.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE BOARD ============ -->
+<section id="board" class="wrap">
+  <div class="board-head reveal">
+    <h2>The Board</h2>
+    <span class="scribble">← pinned fresh every hour!</span>
+  </div>
+
+  <div class="toolbar reveal">
+    <div class="tb-row1">
+      <label class="tb-search">🔍<input id="q2" type="search" placeholder="Search the board…  ( press / )" aria-label="Search listings"></label>
+      <div class="selects">
+        <select id="condSel" aria-label="Filter by condition">
+          <option value="any">Any condition</option>
+          <option>New</option><option>Like new</option><option>Good</option><option>Fair</option>
+        </select>
+        <select id="sortSel" aria-label="Sort listings">
+          <option value="new">Newest first</option>
+          <option value="lo">Price: low → high</option>
+          <option value="hi">Price: high → low</option>
+          <option value="az">A → Z</option>
+        </select>
+      </div>
+    </div>
+    <div class="tb-row2">
+      <div class="chip-row" id="chips"></div>
+      <div class="toggles">
+        <button class="tgl" id="swapTgl">⇄ swaps ok</button>
+        <button class="tgl" id="freeTgl">🆓 free stuff</button>
+        <button class="tgl" id="warrTgl">🛡 warranty</button>
+      </div>
+    </div>
+    <div class="tb-meta">
+      <span id="count"></span>
+      <button class="clear" id="clearBtn" hidden>✕ clear all filters</button>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="empty" id="empty">
+    <span class="big">🔍</span>
+    <h3>Nothing pinned here yet</h3>
+    <p>No listings match those filters. Loosen up — or be the first to post it.</p>
+    <button class="btn btn-paper" id="emptyClear">Clear filters</button>
+    <button class="btn btn-orange" data-open-post>+ Post something</button>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how" class="how">
+  <div class="wrap">
+    <div class="how-head reveal">
+      <span class="kicker light">HOW IT WORKS</span>
+      <h2>Three steps.<br><em>No middlemen.</em></h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step s1">
+        <span class="stamp-mark">30 sec</span>
+        <div class="no">01</div><h3>PIN IT</h3>
+        <p>Snap a pic, set a price (or mark it free), hit post. Your item goes live on the board instantly.</p>
+      </div>
+      <svg class="squig" viewBox="0 0 90 44"><path class="dash" d="M4 32 C 26 6, 48 46, 82 14"/><path d="M72 8 L 84 13 L 73 22"/></svg>
+      <div class="step s2">
+        <span class="stamp-mark">haggle!</span>
+        <div class="no">02</div><h3>CHAT IT</h3>
+        <p>Message the seller right here. Ask questions, negotiate, or propose a swap for something you own.</p>
+      </div>
+      <svg class="squig" viewBox="0 0 90 44"><path class="dash" d="M4 32 C 26 6, 48 46, 82 14"/><path d="M72 8 L 84 13 L 73 22"/></svg>
+      <div class="step s3">
+        <span class="stamp-mark">★★★★★</span>
+        <div class="no">03</div><h3>SWAP IT</h3>
+        <p>Meet somewhere public on campus, check the item, hand it over. Cash, UPI, or trade — your call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOUSE RULES ============ -->
+<section id="rules" class="rules wrap">
+  <div class="rules-head reveal">
+    <h2>House Rules</h2>
+    <span>* taped up where everyone can see</span>
+  </div>
+  <div class="notes reveal">
+    <div class="note n1"><span class="tape"></span>
+      <h3>Meet in public ☀️</h3>
+      <p>SU lobby, library steps, the coffee cart. Daylight and witnesses make every trade safer.</p>
+    </div>
+    <div class="note n2"><span class="tape"></span>
+      <h3>See it before you pay it 💸</h3>
+      <p>Never UPI before you've held the item. No exceptions — not even for "reserved" tickets.</p>
+    </div>
+    <div class="note n3"><span class="tape"></span>
+      <h3>Sus vibes? Flag it 🚩</h3>
+      <p>Too good to be true usually is. Hit the <b>⚑ Report</b> button on any listing and <b>@kartmods</b> will take it down fast.</p>
+    </div>
+    <div class="note n4"><span class="tape"></span>
+      <h3>Tech comes covered 🛡</h3>
+      <p>Every electronic — laptops, phones, gadgets — includes a <b>1-month warranty</b>. Dies within 30 days? Full refund, no drama.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot-main">
+    <div>
+      <h4>See you on<br><em>CampusKart</em> ✌</h4>
+      <p class="fine">CampusKart is run by students, for students. Every rupee stays in dorm pockets — no fees, no commissions, and every electronic comes with a 1-month warranty.</p>
+    </div>
+    <div class="foot-col">
+      <b>Browse</b>
+      <button data-fcat="books">Textbooks</button>
+      <button data-fcat="tech">Tech & gadgets</button>
+      <button data-fcat="furniture">Furniture</button>
+      <button data-fcat="tickets">Tickets</button>
+      <button data-fcat="free">Free stuff</button>
+    </div>
+    <div class="foot-col">
+      <b>CampusKart</b>
+      <a href="#how">How it works</a>
+      <a href="#rules">House rules</a>
+      <a href="#" onclick="return false">Become a mod</a>
+      <a href="#" onclick="return false">Lost & found</a>
+    </div>
+  </div>
+  <div class="ticker rev" aria-hidden="true"><div class="ticker-track" id="tickerFoot"></div></div>
+  <div class="wrap foot-bar">
+    <span>© 2026 CampusKart · Campus Marketplace</span>
+    <span>Built between classes ⏰ · Est. Fall Semester</span>
+  </div>
+</footer>
+
+<!-- FAB -->
+<button class="fab" data-open-post aria-label="Post an item">+</button>
+
+<!-- ============ POST MODAL ============ -->
+<div class="modal" id="postModal" role="dialog" aria-modal="true" aria-label="Post an item">
+  <div class="backdrop" data-close></div>
+  <div class="sheet" id="postSheet">
+    <div class="sheet-head"><h3>📌 Pin something to the board</h3><button class="x" data-close aria-label="Close">✕</button></div>
+    <form id="postForm" class="form-grid" novalidate>
+      <div class="field">
+        <label for="fTitle">What are you selling? *</label>
+        <input type="text" id="fTitle" maxlength="70" placeholder="e.g. Mini fridge — dorm safe">
+      </div>
+      <div class="f-row">
+        <div class="field">
+          <label for="fCat">Category *</label>
+          <select id="fCat"></select>
+          <small id="warrHint" hidden>🛡 Electronics automatically get a 1-month warranty.</small>
+        </div>
+        <div class="field">
+          <label for="fCond">Condition</label>
+          <select id="fCond"><option>New</option><option>Like new</option><option selected>Good</option><option>Fair</option></select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Pick an icon</label>
+        <div class="emoji-row" id="emojiRow"></div>
+      </div>
+      <div class="f-row">
+        <div class="field">
+          <label for="fPrice">Price (₹) — 0 = free</label>
+          <input type="number" id="fPrice" min="0" step="1" placeholder="25">
+        </div>
+        <div class="field" style="display:flex;align-items:flex-end;padding-bottom:8px">
+          <label class="check"><input type="checkbox" id="fTrade"> ⇄ Open to swaps</label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="fDesc">Describe it</label>
+        <textarea id="fDesc" maxlength="220" placeholder="Condition, quirks, where to meet…"></textarea>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="fName">Your name *</label><input type="text" id="fName" placeholder="Alex M."></div>
+        <div class="field"><label for="fDorm">Pickup spot</label><input type="text" id="fDorm" placeholder="Maple Hall"></div>
+      </div>
+    </form>
+    <div class="form-foot">
+      <button class="btn btn-paper" data-close>Cancel</button>
+      <button class="btn btn-orange" id="postSubmit">📌 PIN IT TO THE BOARD</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ITEM DETAIL MODAL ============ -->
+<div class="modal" id="itemModal" role="dialog" aria-modal="true" aria-label="Listing details">
+  <div class="backdrop" data-close></div>
+  <div class="sheet" id="itemSheet">
+    <div class="sheet-head"><h3 id="imCat">Listing</h3><button class="x" data-close aria-label="Close">✕</button></div>
+    <div class="item-wrap" id="itemBody"></div>
+  </div>
+</div>
+
+<!-- ============ REPORT MODAL ============ -->
+<div class="modal" id="reportModal" role="dialog" aria-modal="true" aria-label="Report a listing">
+  <div class="backdrop" data-close></div>
+  <div class="sheet" id="reportSheet">
+    <div class="sheet-head"><h3>🚩 Report listing</h3><button class="x" data-close aria-label="Close">✕</button></div>
+    <div class="report-body">
+      <p class="report-item" id="repItem"></p>
+      <p class="report-note">Reports go straight to <b>@kartmods</b>. Reviewed within 24h — your name stays private.</p>
+      <div class="reasons" id="reasons">
+        <button type="button" class="reason" data-r="Scam or fraud">🎭 Scam or fraud</button>
+        <button type="button" class="reason" data-r="Prohibited item">🚫 Prohibited item</button>
+        <button type="button" class="reason" data-r="Fake or duplicate">👻 Fake or duplicate</button>
+        <button type="button" class="reason" data-r="Unsafe or rude seller">😤 Unsafe or rude seller</button>
+        <button type="button" class="reason" data-r="Misleading price">💸 Misleading price</button>
+        <button type="button" class="reason" data-r="Something else">❔ Something else</button>
+      </div>
+      <textarea id="repDesc" placeholder="Add details (optional)…"></textarea>
+      <div class="report-foot">
+        <button class="btn btn-paper" data-close>Cancel</button>
+        <button class="btn btn-orange" id="repSubmit">🚩 SEND REPORT</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CHAT MODAL ============ -->
+<div class="modal" id="chatModal" role="dialog" aria-modal="true" aria-label="Chat with seller">
+  <div class="backdrop" data-close></div>
+  <div class="sheet" id="chatSheet">
+    <div class="chat-head">
+      <span class="avatar" id="chAvatar">?</span>
+      <div><b id="chName">Seller</b><small><i></i>online · usually replies within the hour</small></div>
+      <button class="x" data-close aria-label="Close" style="margin-left:auto">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody"></div>
+    <form class="chat-input" id="chatForm">
+      <input id="chatText" type="text" maxlength="240" placeholder="Write a message…" autocomplete="off">
+      <button class="btn btn-green" type="submit">SEND</button>
+    </form>
+  </div>
+</div>
+
+<div id="toasts" aria-live="polite"></div>
+
+<script>
+/* ================= DATA ================= */
+const CATS = {
+  books:    {label:'Textbooks',  pat:'pat-lines',   p1:'#dde9fb', p2:'#b7cff2', emojis:['📘','📕','📗','📚','🧮','✏️','🗂️','🖊️']},
+  tech:     {label:'Tech',       pat:'pat-dots',    p1:'#d8ece0', p2:'#8fd0ae', emojis:['💻','📱','🎧','🎮','📷','⌨️','🖨️','🖱️']},
+  furniture:{label:'Furniture',  pat:'pat-stripes', p1:'#ffe4cd', p2:'#ffbd8a', emojis:['🪑','🛏️','🗄️','🪞','🛋️','🚪','💺','📦']},
+  dorm:     {label:'Dorm life',  pat:'pat-check',   p1:'#fdf0c6', p2:'#ffe38f', emojis:['💡','🧊','☕','🪴','🧺','⏰','🧴','🔌']},
+  fashion:  {label:'Fashion',    pat:'pat-dots',    p1:'#ffe1ea', p2:'#ffadc6', emojis:['🧥','👟','🧢','👖','🧣','👜','🕶️','👕']},
+  tickets:  {label:'Tickets',    pat:'pat-stripes', p1:'#ffd9d0', p2:'#ffab98', emojis:['🎟️','🎬','🎫','🎪','🏟️','🎤','🎉','🎭']},
+  sports:   {label:'Sports',     pat:'pat-dots',    p1:'#def0e2', p2:'#9ed9ad', emojis:['🛹','🏀','🧘','🚲','🏓','⚽','🥊','🎾']},
+  free:     {label:'Free stuff', pat:'pat-check',   p1:'#fff3c9', p2:'#ffd76a', emojis:['📦','🎁','🥽','🍜','☂️','🧸','🪴','🗞️']},
+};
+const CAT_ORDER = ['books','tech','furniture','dorm','fashion','tickets','sports','free'];
+
+/* --- desk chair + books pinned to the top of the board --- */
+const ITEMS = [
+ {id:14,t:'IKEA MARKUS desk chair', price:40, cat:'furniture', cond:'Good', emoji:'🪑', s:'Sam W.', dorm:'Birch Hall', mins:8, saves:10, desc:'The dorm classic. Mesh back, rolls smooth, and squeak-free ever since I WD-40\u2019d it last month.'},
+ {id:1, t:'Calculus: Early Transcendentals (8th ed)', price:40, cat:'books', cond:'Like new', emoji:'📘', s:'Maya K.', dorm:'Birch Hall', mins:15, saves:6, desc:'Barely highlighted, spine fully intact. Carried me through MATH 152 — now it is officially your problem 😅'},
+ {id:10,t:'PSYC 101 bundle — book + flashcards', price:25, cat:'books', cond:'Good', emoji:'📚', s:'Jordan P.', dorm:'Oak Hall', mins:22, saves:2, desc:'Textbook, a full flashcard deck, and my actually-good study guide. An A- is guaranteed-ish.'},
+ {id:19,t:'HP Pavilion 15 laptop — i5 / 8GB / 256 SSD', price:190, cat:'tech', cond:'Good', emoji:'💻', s:'Leo M.', dorm:'Cedar Hall', mins:30, saves:18, trade:true, warranty:1, hot:true, desc:'Third-year survivor, freshly formatted with a brand-new battery. Charger included — covered by the 1-month CampusKart warranty, so buy stress-free.'},
+ {id:20,t:'Redmi Note 12 — 128GB, unlocked', price:110, cat:'tech', cond:'Like new', emoji:'📱', s:'Nia J.', dorm:'Elm Hall', mins:35, saves:14, warranty:1, desc:'Box, cable, and a spare case included. Battery health 96%. Comes with the 1-month warranty — glitches within 30 days, full refund.'},
+ {id:2, t:'TI-84 Plus CE graphing calculator', price:55, cat:'tech', cond:'Good', emoji:'🧮', s:'Devon R.', dorm:'Elm Hall', mins:130, saves:9, trade:true, warranty:1, desc:'Works perfectly, holds a charge all week. Comes with the slide case and a formula bookmark (the legal kind).'},
+ {id:3, t:'Mini fridge 3.2 cu ft — dorm safe', price:70, cat:'dorm', cond:'Good', emoji:'🧊', s:'Priya S.', dorm:'Maple Hall', mins:200, saves:12, desc:'Silent enough for a light-sleeper roommate. I am graduating 😭 so it has to go before move-out weekend.'},
+ {id:4, t:'XL-twin loft bed frame', price:45, cat:'furniture', cond:'Fair', emoji:'🛏️', s:'Leo M.', dorm:'Cedar Hall', mins:380, saves:4, desc:'Sturdy, every bolt accounted for, already disassembled. You haul it, I will help you carry it down.'},
+ {id:5, t:'2× Spring Fling tickets — Sat night', price:30, cat:'tickets', cond:'New', emoji:'🎟️', s:'Zoe T.', dorm:'Oak Hall', mins:45, saves:21, hot:true, desc:'Plans changed 😤 Front-section GA. I will transfer them through the official portal right in front of you.'},
+ {id:6, t:'Sony noise-cancelling headphones', price:60, cat:'tech', cond:'Like new', emoji:'🎧', s:'Sam W.', dorm:'Birch Hall', mins:300, saves:15, trade:true, warranty:1, desc:'CH720Ns — a library-season essential. Comes fully charged, sanitized, with the cable.'},
+ {id:7, t:'Moving boxes + packing paper', price:0, cat:'free', cond:'Good', emoji:'📦', s:'Nia J.', dorm:'Elm Hall', mins:90, saves:3, desc:'Free stack of about 15 boxes sitting outside the Elm laundry room. First come, first served!'},
+ {id:8, t:'North Face puffer — size M', price:45, cat:'fashion', cond:'Good', emoji:'🧥', s:'Chris B.', dorm:'Maple Hall', mins:540, saves:8, desc:'Classic black, freshly washed. Warm enough for the long walk to an 8am across the quad.'},
+ {id:9, t:'Skateboard — 8.0 deck', price:35, cat:'sports', cond:'Good', emoji:'🛹', s:'Ava L.', dorm:'Cedar Hall', mins:700, saves:7, trade:true, desc:'Fresh grip tape, smooth bearings. Fully campus-cruiser approved, no pressure bits.'},
+ {id:11,t:'Desk lamp + LED strip combo', price:15, cat:'dorm', cond:'Like new', emoji:'💡', s:'Maya K.', dorm:'Birch Hall', mins:1100, saves:5, desc:'Warm-light desk lamp plus 2 meters of color LEDs. Instant room glow-up, plug and go.'},
+ {id:12,t:'Nintendo Switch + 3 games', price:180, cat:'tech', cond:'Good', emoji:'🎮', s:'Devon R.', dorm:'Elm Hall', mins:60, saves:34, hot:true, trade:true, warranty:1, desc:'Mario Kart, Zelda, Smash. Two joy-cons with zero drift, carry case included. Demo available anytime.'},
+ {id:13,t:'Chem goggles + lab notebook', price:0, cat:'free', cond:'Fair', emoji:'🥽', s:'Priya S.', dorm:'Maple Hall', mins:2000, saves:1, desc:'Half-filled notebook (CHEM 101, neat handwriting) and fog-free goggles. You are welcome.'},
+ {id:15,t:'Movie Night pass — 5 pack', price:12, cat:'tickets', cond:'New', emoji:'🎬', s:'Zoe T.', dorm:'Oak Hall', mins:420, saves:6, desc:'Campus cinema punch card, five movies. Cheaper than a single month of any streaming service.'},
+ {id:16,t:'Vintage Levi\u2019s 501 — 32×30', price:28, cat:'fashion', cond:'Good', emoji:'👖', s:'Ava L.', dorm:'Cedar Hall', mins:950, saves:11, trade:true, desc:'Proper vintage, proper fade. Might trade for records — pitch me what you have.'},
+ {id:17,t:'Yoga mat + 2 blocks', price:10, cat:'sports', cond:'Like new', emoji:'🧘', s:'Nia J.', dorm:'Elm Hall', mins:1700, saves:3, desc:'Barely used — my New Year\u2019s resolution lasted exactly two weeks. No judgement.'},
+ {id:18,t:'Electric kettle — rapid boil', price:12, cat:'dorm', cond:'Like new', emoji:'☕', s:'Jordan P.', dorm:'Oak Hall', mins:45, saves:9, desc:'Boils in 2 minutes, auto shut-off, RA-approved. The ultimate ramen enabler.'},
+];
+
+const AVATAR_COLORS = ['#f2542d','#2f6bd8','#17604a','#e0921f','#c94f7c','#0e3d2f'];
+const REPLIES = {
+  buy:  ['Works for me! I\u2019m free after 4 — meet at the SU lobby?','Nice! Cash or UPI, whatever is easier 👍','Deal. I walk past the library around noon, want to meet there?','Sounds good! It\u2019s cleaned up and ready to go 🙂','Perfect — I can bring it to my 2pm building, it\u2019s right on your way.'],
+  swap: ['Hmm interesting! What condition is yours in?','Ooh maybe — could you send a pic of it?','I\u2019d consider it + like ₹10 on top? 😄','Yeah let\u2019s do it! When are you free to meet up?'],
+};
+const TICKER_SEED = [
+  '🛡 New policy: every electronic now carries a 1-month warranty','💻 Just in: HP Pavilion 15 laptop — warranty included',
+  '📱 Redmi Note 12 listed — 96% battery + warranty','🔥 “Nintendo Switch + 3 games” is trending · 34 saves',
+  '⇄ Devon swapped a desk chair for a kettle','🎟️ 2× Spring Fling tickets just dropped',
+  '🆓 Free moving boxes outside Elm laundry','📚 Textbook season is ON — 6 new listings today',
+];
+
+/* ================= STATE ================= */
+const state = { q:'', cat:'all', cond:'any', sort:'new', swapsOnly:false, freeOnly:false, warrOnly:false, savedOnly:false };
+const saved = new Set();
+const threads = {};
+let chatItem = null, chatMode = 'buy', nextId = 100;
+let reportTarget = null, reportCounter = 481;
+const $ = s => document.querySelector(s);
+
+/* ================= HELPERS ================= */
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const initials = n => n.split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+const avColor = n => AVATAR_COLORS[n.split('').reduce((a,c)=>a+c.charCodeAt(0),0) % AVATAR_COLORS.length];
+function timeAgo(m){ if(m<1) return 'just now'; if(m<60) return m+'m ago'; if(m<1440) return Math.floor(m/60)+'h ago'; return Math.floor(m/1440)+'d ago'; }
+function priceHTML(p){ return p===0 ? '<span class="free-tag">FREE</span>' : `<span class="price">₹${p}</span>`; }
+
+function toast(msg, action){
+  const t = document.createElement('div'); t.className='toast';
+  t.innerHTML = `<span>${msg}</span>`;
+  if(action){
+    const b = document.createElement('button');
+    b.className='undo'; b.textContent = action.label;
+    b.addEventListener('click', ()=>{ action.fn(); t.remove(); });
+    t.appendChild(b);
+  }
+  $('#toasts').appendChild(t);
+  setTimeout(()=>{ t.classList.add('out'); setTimeout(()=>t.remove(),320); }, action ? 4800 : 3200);
+}
+
+/* ================= TICKERS ================= */
+let tickerItems = [...TICKER_SEED];
+function renderTicker(){
+  const html = tickerItems.map(i=>`<span>${i}</span>`).join('<span class="sep">✦</span>');
+  $('#tickerTrack').innerHTML = html + '<span class="sep">✦</span>' + html;
+}
+function pushTicker(txt){ tickerItems.unshift(txt); tickerItems = tickerItems.slice(0,12); renderTicker(); }
+(function footTicker(){
+  const bits = ['TEXTBOOKS','TECH','FURNITURE','DORM LIFE','FASHION','TICKETS','SPORTS','FREE STUFF'].map(w=>`<span>${w}</span>`).join('<span class="sep">★</span>');
+  $('#tickerFoot').innerHTML = bits + '<span class="sep">★</span>' + bits;
+})();
+renderTicker();
+
+/* ================= FILTER / SORT ================= */
+function passes(it){
+  if(state.savedOnly && !saved.has(it.id)) return false;
+  if(state.cat!=='all' && it.cat!==state.cat) return false;
+  if(state.cond!=='any' && it.cond!==state.cond) return false;
+  if(state.swapsOnly && !it.trade) return false;
+  if(state.freeOnly && it.price!==0) return false;
+  if(state.warrOnly && !it.warranty) return false;
+  if(state.q){
+    const hay = (it.t+' '+it.desc+' '+CATS[it.cat].label+' '+it.dorm+' '+it.s).toLowerCase();
+    if(!hay.includes(state.q.toLowerCase())) return false;
+  }
+  return true;
+}
+function sortItems(list){
+  const c = [...list];
+  if(state.sort==='new') c.sort((a,b)=>a.mins-b.mins);
+  if(state.sort==='lo')  c.sort((a,b)=>a.price-b.price);
+  if(state.sort==='hi')  c.sort((a,b)=>b.price-a.price);
+  if(state.sort==='az')  c.sort((a,b)=>a.t.localeCompare(b.t));
+  return c;
+}
+
+/* ================= RENDER ================= */
+function renderChips(){
+  const counts = {}; CAT_ORDER.forEach(c=>counts[c]=0);
+  ITEMS.forEach(i=>counts[i.cat]++);
+  let html = `<button class="chip ${state.cat==='all'?'on':''}" data-cat="all">All<b>${ITEMS.length}</b></button>`;
+  CAT_ORDER.forEach(c=>{
+    html += `<button class="chip ${state.cat===c?'on':''}" data-cat="${c}">${CATS[c].label}<b>${counts[c]}</b></button>`;
+  });
+  $('#chips').innerHTML = html;
+}
+
+function cardHTML(it, i){
+  const c = CATS[it.cat];
+  const tilt = ((i%5)-2)*0.8;
+  const isSaved = saved.has(it.id);
+  return `
+  <article class="card" style="--tilt:${tilt}deg;animation-delay:${Math.min(i*45,420)}ms" data-id="${it.id}" tabindex="0" aria-label="${esc(it.t)}, ${it.price===0?'free':'₹'+it.price}">
+    <span class="pin"></span>
+    ${it.hot ? '<span class="hot-sticker">🔥 HOT</span>' : ''}
+    ${it.isNew ? '<span class="hot-sticker new-sticker">✨ NEW</span>' : ''}
+    ${it.reported ? '<span class="hot-sticker flag-sticker">⚑ REVIEW</span>' : ''}
+    <div class="art ${c.pat}" style="--p1:${c.p1};--p2:${c.p2}"><span>${it.emoji}</span></div>
+    <div class="card-body">
+      <div class="card-tags"><span class="tag">${c.label}</span><span class="cond">${it.cond}</span>${it.warranty?'<span class="warr-tag">🛡 1-mo warranty</span>':''}</div>
+      <h3>${esc(it.t)}</h3>
+      <div class="meta">📍 ${esc(it.dorm)} · ${timeAgo(it.mins)}</div>
+      <div class="card-foot">
+        ${priceHTML(it.price)}
+        ${it.trade ? '<span class="swap-chip">⇄</span>' : ''}
+        <button class="heart ${isSaved?'on':''}" data-fav="${it.id}" aria-label="Save item">${isSaved?'♥':'♡'} <b>${it.saves + (isSaved?1:0)}</b></button>
+        <button class="report-mini" data-rep="${it.id}" title="Report this listing" aria-label="Report this listing">⚑</button>
+      </div>
+    </div>
+  </article>`;
+}
+
+function renderGrid(){
+  const list = sortItems(ITEMS.filter(passes));
+  $('#grid').innerHTML = list.map(cardHTML).join('');
+  $('#empty').style.display = list.length ? 'none' : 'block';
+  $('#count').textContent = `Showing ${list.length} of ${ITEMS.length} pinned items` + (state.savedOnly ? ' · saved only' : '');
+  const filtering = state.q || state.cat!=='all' || state.cond!=='any' || state.swapsOnly || state.freeOnly || state.warrOnly || state.savedOnly;
+  $('#clearBtn').hidden = !filtering;
+}
+
+function updateSavedUI(){
+  $('#savedCount').textContent = saved.size;
+  $('#savedBtn').classList.toggle('on', state.savedOnly);
+}
+
+function renderAll(){ renderChips(); renderGrid(); updateSavedUI(); }
+
+/* ================= EVENTS: TOOLBAR ================= */
+function setQuery(v){
+  state.q = v;
+  $('#q1').value = v; $('#q2').value = v;
+  renderGrid();
+}
+$('#q1').addEventListener('input', e=>setQuery(e.target.value));
+$('#q2').addEventListener('input', e=>setQuery(e.target.value));
+$('#heroSearch').addEventListener('submit', e=>{ e.preventDefault(); $('#board').scrollIntoView({behavior:'smooth'}); });
+$('#condSel').addEventListener('change', e=>{ state.cond = e.target.value; renderGrid(); });
+$('#sortSel').addEventListener('change', e=>{ state.sort = e.target.value; renderGrid(); });
+$('#swapTgl').addEventListener('click', ()=>{ state.swapsOnly=!state.swapsOnly; $('#swapTgl').classList.toggle('on',state.swapsOnly); renderGrid(); });
+$('#freeTgl').addEventListener('click', ()=>{ state.freeOnly=!state.freeOnly; $('#freeTgl').classList.toggle('on',state.freeOnly); renderGrid(); });
+$('#warrTgl').addEventListener('click', ()=>{ state.warrOnly=!state.warrOnly; $('#warrTgl').classList.toggle('on',state.warrOnly); renderGrid(); });
+
+document.addEventListener('click', e=>{
+  const chip = e.target.closest('.chip');
+  if(chip){ state.cat = chip.dataset.cat; renderAll(); return; }
+  const fc = e.target.closest('[data-fcat]');
+  if(fc){ state.cat = fc.dataset.fcat; renderAll(); $('#board').scrollIntoView({behavior:'smooth'}); return; }
+  const tryBtn = e.target.closest('[data-q]');
+  if(tryBtn){ setQuery(tryBtn.dataset.q); $('#board').scrollIntoView({behavior:'smooth'}); return; }
+  if(e.target.closest('#clearBtn') || e.target.closest('#emptyClear')){ resetFilters(); return; }
+  if(e.target.closest('#savedBtn')){
+    state.savedOnly = !state.savedOnly; updateSavedUI(); renderGrid();
+    toast(state.savedOnly ? '♥ Showing your saved items' : 'Showing everything again'); return;
+  }
+});
+
+function resetFilters(){
+  state.q=''; state.cat='all'; state.cond='any'; state.swapsOnly=false; state.freeOnly=false; state.warrOnly=false; state.savedOnly=false;
+  $('#q1').value=''; $('#q2').value=''; $('#condSel').value='any';
+  $('#swapTgl').classList.remove('on'); $('#freeTgl').classList.remove('on'); $('#warrTgl').classList.remove('on');
+  renderAll();
+}
+
+/* ================= EVENTS: GRID (fav + report + open) ================= */
+$('#grid').addEventListener('click', e=>{
+  const rep = e.target.closest('[data-rep]');
+  if(rep){ openReport(ITEMS.find(i=>i.id===+rep.dataset.rep)); return; }
+  const fav = e.target.closest('[data-fav]');
+  if(fav){ toggleFav(+fav.dataset.fav); return; }
+  const card = e.target.closest('.card');
+  if(card) openItem(+card.dataset.id);
+});
+$('#grid').addEventListener('keydown', e=>{
+  if(e.key==='Enter' && e.target.classList.contains('card')) openItem(+e.target.dataset.id);
+});
+
+function toggleFav(id){
+  const it = ITEMS.find(i=>i.id===id);
+  if(saved.has(id)){ saved.delete(id); toast('Removed from saved'); }
+  else { saved.add(id); toast(`♥ Saved “${esc(it.t.length>26?it.t.slice(0,26)+'…':it.t)}”`); pushTicker(`♥ You saved “${it.t}”`); }
+  renderGrid(); updateSavedUI();
+}
+
+/* ================= MODAL PLUMBING ================= */
+function openModal(id){ $(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(el){ el.classList.remove('open'); if(!document.querySelector('.modal.open')) document.body.style.overflow=''; }
+document.querySelectorAll('.modal').forEach(m=>{
+  m.addEventListener('click', e=>{ if(e.target.closest('[data-close]')) closeModal(m); });
+});
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){
+    const open = [...document.querySelectorAll('.modal.open')].pop();
+    if(open) closeModal(open);
+  }
+  if(e.key==='/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){
+    e.preventDefault(); $('#q2').focus();
+  }
+});
+document.querySelectorAll('[data-open-post]').forEach(b=>b.addEventListener('click', ()=>{ openModal('#postModal'); $('#fTitle').focus(); }));
+
+/* ================= ITEM DETAIL ================= */
+let currentItem = null;
+function openItem(id){
+  const it = ITEMS.find(i=>i.id===id); if(!it) return;
+  currentItem = it;
+  const c = CATS[it.cat];
+  $('#imCat').textContent = `${c.label} · ${it.cond}`;
+  $('#itemBody').innerHTML = `
+    <div class="item-art ${c.pat}" style="--p1:${c.p1};--p2:${c.p2}"><span>${it.emoji}</span></div>
+    <div class="item-info">
+      <div class="card-tags"><span class="tag">${c.label}</span><span class="cond">${it.cond}</span>${it.warranty?'<span class="warr-tag">🛡 1-month warranty</span>':''}${it.trade?'<span class="swap-chip">⇄ swaps ok</span>':''}${it.reported?'<span class="swap-chip" style="border-color:var(--orange);color:var(--orange)">⚑ under review</span>':''}</div>
+      <h2>${esc(it.t)}</h2>
+      <div class="item-price-row">${priceHTML(it.price)}<span class="meta">pinned ${timeAgo(it.mins)} · ♥ ${it.saves + (saved.has(it.id)?1:0)} saves</span></div>
+      <p class="desc">${esc(it.desc)}</p>
+      ${it.warranty ? `<div class="warr-box">🛡 1-MONTH WARRANTY — if this stops working within 30 days, you get a full refund. Backed by @kartmods, no paperwork needed.</div>` : ''}
+      <div class="seller-card">
+        <span class="avatar" style="background:${avColor(it.s)}">${initials(it.s)}</span>
+        <div><b>${esc(it.s)}</b><small>📍 ${esc(it.dorm)} · ⭐ 4.9 · ${3 + (it.id % 9)} trades</small></div>
+      </div>
+      <div class="item-actions">
+        <button class="btn btn-orange" data-chat="buy">💬 Message ${esc(it.s.split(' ')[0])}</button>
+        <button class="btn btn-green" data-chat="swap">⇄ Propose a swap</button>
+        <button class="btn btn-paper" data-report>🚩 Report</button>
+      </div>
+      <p class="safety">🤝 Meet in public · 👀 Inspect before paying · 🚩 Report anything sus to @kartmods</p>
+    </div>`;
+  openModal('#itemModal');
+}
+$('#itemBody').addEventListener('click', e=>{
+  const rep = e.target.closest('[data-report]');
+  if(rep && currentItem){ openReport(currentItem); return; }
+  const btn = e.target.closest('[data-chat]');
+  if(btn && currentItem) openChat(currentItem, btn.dataset.chat);
+});
+
+/* ================= REPORT ================= */
+function openReport(it){
+  if(!it) return;
+  if(it.reported){
+    toast(`⚑ Already under review — case ${it.caseId} · @kartmods on it`);
+    return;
+  }
+  reportTarget = it;
+  $('#repItem').textContent = `“${it.t}” · listed by ${it.s}`;
+  document.querySelectorAll('.reason').forEach(r=>r.classList.remove('sel'));
+  $('#repDesc').value = '';
+  openModal('#reportModal');
+}
+$('#reasons').addEventListener('click', e=>{
+  const r = e.target.closest('.reason'); if(!r) return;
+  document.querySelectorAll('.reason').forEach(x=>x.classList.remove('sel'));
+  r.classList.add('sel');
+});
+$('#repSubmit').addEventListener('click', ()=>{
+  const sel = document.querySelector('.reason.sel');
+  if(!sel){ toast('✋ Pick a reason first'); return; }
+  const it = reportTarget;
+  it.reported = sel.dataset.r;
+  it.caseId = 'R-' + (++reportCounter);
+  closeModal($('#reportModal'));
+  closeModal($('#itemModal'));
+  renderGrid();
+  pushTicker(`🚩 A listing was flagged (${it.reported}) — @kartmods reviewing`);
+  const short = it.t.length > 24 ? it.t.slice(0,24) + '…' : it.t;
+  toast(`🚩 ${it.caseId} sent — “${esc(short)}” is under review`, {
+    label: 'Undo',
+    fn(){
+      it.reported = null; it.caseId = null;
+      renderGrid();
+      toast('Report withdrawn ✔');
+    }
+  });
+});
+
+/* ================= CHAT ================= */
+function addBubble(who, text){
+  const b = document.createElement('div');
+  b.className = 'bub ' + who;
+  b.innerHTML = esc(text);
+  $('#chatBody').appendChild(b);
+  $('#chatBody').scrollTop = $('#chatBody').scrollHeight;
+  return b;
+}
+function sellerReply(mode, delay=1100){
+  setTimeout(()=>{
+    const t = document.createElement('div');
+    t.className = 'bub them typing'; t.innerHTML = '<i></i><i></i><i></i>';
+    $('#chatBody').appendChild(t); $('#chatBody').scrollTop = $('#chatBody').scrollHeight;
+    setTimeout(()=>{
+      t.remove();
+      const pool = REPLIES[mode] || REPLIES.buy;
+      addBubble('them', pool[Math.floor(Math.random()*pool.length)]);
+    }, delay);
+  }, 350);
+}
+function openChat(it, mode){
+  chatItem = it; chatMode = mode;
+  $('#chName').textContent = it.s;
+  const av = $('#chAvatar'); av.textContent = initials(it.s); av.style.background = avColor(it.s);
+  $('#chatBody').innerHTML = '';
+  if(!threads[it.id]){
+    threads[it.id] = true;
+    if(mode==='swap'){
+      addBubble('sys','⇄ SWAP REQUEST SENT');
+      addBubble('me', `Hi ${it.s.split(' ')[0]}! Would you swap “${it.t}” for something of mine?`);
+      sellerReply('swap', 1300);
+    } else {
+      addBubble('them', `Hey! Yep, “${it.t.length>30?it.t.slice(0,30)+'…':it.t}” is still available 🙂`);
+    }
+    toast(`💬 Chat started with ${esc(it.s)} — they reply fast`);
+    pushTicker(`💬 You messaged ${it.s} about “${it.t}”`);
+  } else if(mode==='swap'){
+    addBubble('sys','⇄ SWAP REQUEST SENT');
+    sellerReply('swap');
+  } else {
+    addBubble('them', 'Hey again! Still interested? 😊');
+  }
+  openModal('#chatModal');
+  setTimeout(()=>$('#chatText').focus(), 80);
+}
+$('#chatForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const v = $('#chatText').value.trim();
+  if(!v) return;
+  addBubble('me', v);
+  $('#chatText').value = '';
+  if(/swap|trade/i.test(v)) sellerReply('swap'); else sellerReply(chatMode);
+});
+
+/* ================= POST FORM ================= */
+const catSel = $('#fCat');
+CAT_ORDER.forEach(c=>{ const o = document.createElement('option'); o.value=c; o.textContent=CATS[c].label; catSel.appendChild(o); });
+let pickedEmoji = CATS[catSel.value].emojis[0];
+function renderEmojiRow(){
+  $('#emojiRow').innerHTML = CATS[catSel.value].emojis.map(e=>
+    `<button type="button" class="emoji-btn ${e===pickedEmoji?'sel':''}" data-e="${e}">${e}</button>`).join('');
+}
+function syncCatUI(){
+  pickedEmoji = CATS[catSel.value].emojis[0];
+  renderEmojiRow();
+  $('#warrHint').hidden = catSel.value !== 'tech';
+}
+catSel.addEventListener('change', syncCatUI);
+$('#emojiRow').addEventListener('click', e=>{
+  const b = e.target.closest('[data-e]'); if(!b) return;
+  pickedEmoji = b.dataset.e; renderEmojiRow();
+});
+syncCatUI();
+
+$('#postSubmit').addEventListener('click', ()=>{
+  const title = $('#fTitle').value.trim();
+  const name  = $('#fName').value.trim();
+  if(!title){ toast('✋ Give your item a title first!'); $('#fTitle').focus(); return; }
+  if(!name){ toast('✋ Buyers need to know who you are!'); $('#fName').focus(); return; }
+  const price = Math.max(0, parseInt($('#fPrice').value,10) || 0);
+  const isTech = catSel.value === 'tech';
+  const item = {
+    id: ++nextId, t:title, price, cat:catSel.value, cond:$('#fCond').value,
+    emoji:pickedEmoji, s:name, dorm:$('#fDorm').value.trim() || 'Campus',
+    mins:0, saves:0, trade:$('#fTrade').checked,
+    warranty: isTech ? 1 : 0,
+    desc:$('#fDesc').value.trim() || 'No description yet — message the seller!', isNew:true,
+  };
+  ITEMS.unshift(item);
+  if(!passes(item)){ state.q=''; state.cat='all'; state.cond='any'; state.swapsOnly=false; state.freeOnly=false; state.warrOnly=false; state.savedOnly=false;
+    $('#q1').value=''; $('#q2').value=''; $('#condSel').value='any';
+    $('#swapTgl').classList.remove('on'); $('#freeTgl').classList.remove('on'); $('#warrTgl').classList.remove('on'); }
+  state.sort='new'; $('#sortSel').value='new';
+  renderAll();
+  $('#statListings').textContent = ITEMS.length;
+  closeModal($('#postModal'));
+  $('#postForm').reset(); syncCatUI();
+  pushTicker(`📌 ${name} just pinned “${title}”${isTech ? ' · 🛡 warranty included' : ''}`);
+  toast(isTech ? '📌 Pinned to the board! 🛡 1-month warranty auto-added (electronics policy)' : '📌 Pinned to the board!');
+  setTimeout(()=>{
+    $('#board').scrollIntoView({behavior:'smooth'});
+    const el = document.querySelector(`[data-id="${item.id}"]`);
+    if(el) el.classList.add('flash');
+  }, 120);
+});
+
+/* ================= COUNTERS & REVEALS ================= */
+function animateCount(el){
+  const target = el.id==='statListings' ? ITEMS.length : parseInt(el.dataset.count,10);
+  const dur = 1300, t0 = performance.now();
+  (function step(t){
+    const p = Math.min(1,(t-t0)/dur), ease = 1-Math.pow(1-p,3);
+    el.textContent = Math.round(target*ease).toLocaleString();
+    if(p<1) requestAnimationFrame(step);
+  })(t0);
+}
+document.querySelectorAll('[data-count], #statListings').forEach(animateCount);
+
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ================= INIT ================= */
+renderAll();
+</script>
+</body>
+</html>
